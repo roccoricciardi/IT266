@@ -203,7 +203,7 @@ void ChangeWeapon (edict_t *ent)
 	{
 			ent->s.frame = FRAME_pain301;
 			ent->client->anim_end = FRAME_pain304;
-			
+
 	}
 }
 
@@ -386,7 +386,7 @@ void Weapon_Generic (edict_t *ent, int FRAME_ACTIVATE_LAST, int FRAME_FIRE_LAST,
 			{
 				ent->s.frame = FRAME_pain304+1;
 				ent->client->anim_end = FRAME_pain301;
-				
+
 			}
 		}
 
@@ -424,7 +424,7 @@ void Weapon_Generic (edict_t *ent, int FRAME_ACTIVATE_LAST, int FRAME_FIRE_LAST,
 			{
 				ent->s.frame = FRAME_pain304+1;
 				ent->client->anim_end = FRAME_pain301;
-				
+
 			}
 		}
 		return;
@@ -759,80 +759,9 @@ void Weapon_RocketLauncher_Fire (edict_t *ent)
 	VectorScale (forward, -2, ent->client->kick_origin);
 	ent->client->kick_angles[0] = -1;
 
-
-
-	VectorSet(offset, 50, -50, ent->viewheight+20);
+	VectorSet(offset, 8, 8, ent->viewheight-8);
 	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
 	fire_rocket (ent, start, forward, damage, 650, damage_radius, radius_damage);
-
-	VectorSet(offset, 5, 15, ent->viewheight-50);
-	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rocket (ent, start, forward, damage, 700, damage_radius, radius_damage);
-
-	VectorSet(offset, 1, 1, ent->viewheight+60);
-	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rocket (ent, start, forward, damage, 1000, damage_radius, radius_damage);
-
-	VectorSet(offset, 25, -30, ent->viewheight+50);
-	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rocket (ent, start, forward, damage, 500, damage_radius, radius_damage);
-
-	VectorSet(offset, 40, 60, ent->viewheight-10);
-	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rocket (ent, start, forward, damage, 550, damage_radius, radius_damage);
-
-	VectorSet(offset, 3, 50, ent->viewheight-3);
-	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rocket (ent, start, forward, damage, 800, damage_radius, radius_damage);
-
-	VectorSet(offset, -30, -15, ent->viewheight-3);
-	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rocket (ent, start, forward, damage, 2000, damage_radius, radius_damage);
-
-	VectorSet(offset, -3, -20, ent->viewheight-10);
-	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rocket (ent, start, forward, damage, 1500, damage_radius, radius_damage);
-
-	VectorSet(offset, -30, -30, ent->viewheight+75);
-	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rocket (ent, start, forward, damage, 900, damage_radius, radius_damage);
-
-	VectorSet(offset, 50, -50, ent->viewheight-1);
-	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rocket (ent, start, forward, damage, 850, damage_radius, radius_damage);
-
-	VectorSet(offset, 5, 15, ent->viewheight-5);
-	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rocket (ent, start, forward, damage, 650, damage_radius, radius_damage);
-
-	VectorSet(offset, 1, 1, ent->viewheight+45);
-	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rocket (ent, start, forward, damage, 650, damage_radius, radius_damage);
-
-	VectorSet(offset, 25, -30, ent->viewheight+10);
-	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rocket (ent, start, forward, damage, 700, damage_radius, radius_damage);
-
-	VectorSet(offset, 40, 60, ent->viewheight-1);
-	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rocket (ent, start, forward, damage, 750, damage_radius, radius_damage);
-
-	VectorSet(offset, 3, 50, ent->viewheight-3);
-	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rocket (ent, start, forward, damage, 600, damage_radius, radius_damage);
-
-	VectorSet(offset, -30, -15, ent->viewheight+35);
-	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rocket (ent, start, forward, damage, 850, damage_radius, radius_damage);
-
-	VectorSet(offset, -3, -20, ent->viewheight+55);
-	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rocket (ent, start, forward, damage, 650, damage_radius, radius_damage);
-
-	VectorSet(offset, -30, -30, ent->viewheight-3);
-	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rocket (ent, start, forward, damage, 600, damage_radius, radius_damage);
-
 
 	// send muzzle flash
 	gi.WriteByte (svc_muzzleflash);
