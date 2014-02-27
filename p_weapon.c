@@ -771,6 +771,7 @@ void Weapon_RocketLauncher_Fire (edict_t *ent)
 
 	ent->client->ps.gunframe++;
 
+
 	PlayerNoise(ent, start, PNOISE_WEAPON);
 
 	if (! ( (int)dmflags->value & DF_INFINITE_AMMO ) )
