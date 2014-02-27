@@ -880,22 +880,22 @@ void Cmd_PlayerList_f(edict_t *ent)
 	gi.cprintf(ent, PRINT_HIGH, "%s", text);
 }
 
+
+
 //Midterm Mod - enhanced movement
 
 
-
-
-void Cmd_forwardmarch_f (edict_t *ent)
+void Cmd_dash_f (edict_t *ent)
 {
 	vec3_t forward;
 	AngleVectors(ent->client->v_angle, forward, NULL, NULL);
 
 			if((!ent) || (ent->client))
 			{
-				return;
+				VectorMA(ent->velocity, 900, forward, ent->velocity);
 			}
 		
-			VectorMA(ent->velocity, 900, forward, ent->velocity);
+			
 }
 
 
@@ -992,8 +992,8 @@ void ClientCommand (edict_t *ent)
 	
 
 	//Midterm Mod - enhanced movement
-	else if (Q_stricmp (cmd, "forwardmarch") == 0)
-		Cmd_forwardmarch_f (ent);
+	else if (Q_stricmp (cmd, "dash") == 0)
+		Cmd_dash_f (ent);
 
 
 
