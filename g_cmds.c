@@ -880,6 +880,27 @@ void Cmd_PlayerList_f(edict_t *ent)
 	gi.cprintf(ent, PRINT_HIGH, "%s", text);
 }
 
+//Midterm Mod - enhanced movement
+
+
+
+
+void Cmd_forwardmarch_f (edict_t *ent)
+{
+	vec3_t forward;
+	AngleVectors(ent->client->v_angle, forward, NULL, NULL);
+
+			if((!ent) || (ent->client))
+			{
+				return;
+			}
+		
+			VectorMA(ent->velocity, 900, forward, ent->velocity);
+}
+
+
+
+
 
 /*
 =================
@@ -968,6 +989,15 @@ void ClientCommand (edict_t *ent)
 		Cmd_Wave_f (ent);
 	else if (Q_stricmp(cmd, "playerlist") == 0)
 		Cmd_PlayerList_f(ent);
+	
+
+	//Midterm Mod - enhanced movement
+	else if (Q_stricmp (cmd, "forwardmarch") == 0)
+		Cmd_forwardmarch_f (ent);
+
+
+
+
 	else	// anything that doesn't match a command will be a chat
 		Cmd_Say_f (ent, false, true);
 }
