@@ -478,7 +478,7 @@ void SV_CalcBlend (edict_t *ent)
 =================
 P_FallingDamage
 =================
-*/
+
 void P_FallingDamage (edict_t *ent)
 {
 	float	delta;
@@ -549,7 +549,7 @@ void P_FallingDamage (edict_t *ent)
 		return;
 	}
 }
-
+*/
 
 
 /*
@@ -1018,7 +1018,7 @@ void ClientEndServerFrame (edict_t *ent)
 	bobfracsin = fabs(sin(bobtime*M_PI));
 
 	// detect hitting the floor
-	P_FallingDamage (ent);
+	// P_FallingDamage (ent);
 
 	// apply all the damage taken this frame
 	P_DamageFeedback (ent);
