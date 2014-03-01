@@ -813,8 +813,7 @@ void Blaster_Fire (edict_t *ent, vec3_t g_offset, int damage, qboolean hyper, in
 
 
 
-	//removal for mod so blaster doesn't do anything
-	//fire_blaster (ent, start, forward, damage, 1000, effect, hyper);
+	fire_blaster (ent, start, forward, damage, 1000, effect, hyper);
 
 
 
