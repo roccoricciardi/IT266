@@ -543,6 +543,8 @@ void weapon_grenade_fire (edict_t *ent, qboolean held)
 	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
 
 	timer = ent->client->grenade_time - level.time;
+
+	//might mess with this to make grenades move slower
 	speed = GRENADE_MINSPEED + (GRENADE_TIMER - timer) * ((GRENADE_MAXSPEED - GRENADE_MINSPEED) / GRENADE_TIMER);
 	fire_grenade2 (ent, start, forward, damage, speed, timer, radius, held);
 
@@ -745,7 +747,7 @@ void Weapon_RocketLauncher_Fire (edict_t *ent)
 	float	damage_radius;
 	int		radius_damage;
 
-	damage = 100 + (int)(random() * 20.0);
+	damage = 150 + (int)(random() * 20.0);
 	radius_damage = 120;
 	damage_radius = 120;
 	if (is_quad)
@@ -836,9 +838,9 @@ void Weapon_Blaster_Fire (edict_t *ent)
 	int		damage;
 
 	if (deathmatch->value)
-		damage = 15;
+		damage = 50;
 	else
-		damage = 10;
+		damage = 50;
 	Blaster_Fire (ent, vec3_origin, damage, false, EF_BLASTER);
 	ent->client->ps.gunframe++;
 }
@@ -1376,9 +1378,9 @@ void weapon_bfg_fire (edict_t *ent)
 	float	damage_radius = 1000;
 
 	if (deathmatch->value)
-		damage = 200;
+		damage = 250;
 	else
-		damage = 500;
+		damage = 550;
 
 	if (ent->client->ps.gunframe == 9)
 	{
