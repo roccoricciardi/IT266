@@ -706,7 +706,7 @@ void weapon_grenadelauncher_fire (edict_t *ent)
 	VectorScale (forward, -2, ent->client->kick_origin);
 	ent->client->kick_angles[0] = -1;
 
-	fire_grenade (ent, start, forward, damage, 600, 2.5, radius);
+	fire_grenade (ent, start, forward, damage, 60, 2.5, radius);
 
 	gi.WriteByte (svc_muzzleflash);
 	gi.WriteShort (ent-g_edicts);
@@ -761,7 +761,7 @@ void Weapon_RocketLauncher_Fire (edict_t *ent)
 
 	VectorSet(offset, 8, 8, ent->viewheight-8);
 	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rocket (ent, start, forward, damage, 650, damage_radius, radius_damage);
+	fire_rocket (ent, start, forward, damage, 65, damage_radius, radius_damage);
 
 	// send muzzle flash
 	gi.WriteByte (svc_muzzleflash);
@@ -813,7 +813,7 @@ void Blaster_Fire (edict_t *ent, vec3_t g_offset, int damage, qboolean hyper, in
 
 
 
-	fire_blaster (ent, start, forward, damage, 1000, effect, hyper);
+	fire_blaster (ent, start, forward, damage, 100, effect, hyper);
 
 
 
@@ -1416,7 +1416,7 @@ void weapon_bfg_fire (edict_t *ent)
 
 	VectorSet(offset, 8, 8, ent->viewheight-8);
 	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_bfg (ent, start, forward, damage, 400, damage_radius);
+	fire_bfg (ent, start, forward, damage, 40, damage_radius);
 
 	ent->client->ps.gunframe++;
 
