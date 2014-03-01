@@ -1202,11 +1202,15 @@ void weapon_shotgun_fire (edict_t *ent)
 		damage *= 4;
 		kick *= 4;
 	}
-
+	//removing lead based weapons for this mod - ammo will be in slomo, lead weapons don't actually fire stuff
+	/*
 	if (deathmatch->value)
 		fire_shotgun (ent, start, forward, damage, kick, 500, 500, DEFAULT_DEATHMATCH_SHOTGUN_COUNT, MOD_SHOTGUN);
 	else
 		fire_shotgun (ent, start, forward, damage, kick, 500, 500, DEFAULT_SHOTGUN_COUNT, MOD_SHOTGUN);
+	*/
+
+
 
 	// send muzzle flash
 	gi.WriteByte (svc_muzzleflash);
@@ -1257,10 +1261,15 @@ void weapon_supershotgun_fire (edict_t *ent)
 	v[YAW]   = ent->client->v_angle[YAW] - 5;
 	v[ROLL]  = ent->client->v_angle[ROLL];
 	AngleVectors (v, forward, NULL, NULL);
-	fire_shotgun (ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT/2, MOD_SSHOTGUN);
+
+	//removing lead based weapons for this mod - ammo will be in slomo, lead weapons don't actually fire stuff
+	//fire_shotgun (ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT/2, MOD_SSHOTGUN);
+	
 	v[YAW]   = ent->client->v_angle[YAW] + 5;
 	AngleVectors (v, forward, NULL, NULL);
-	fire_shotgun (ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT/2, MOD_SSHOTGUN);
+	
+	//removing lead based weapons for this mod - ammo will be in slomo, lead weapons don't actually fire stuff
+	//fire_shotgun (ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT/2, MOD_SSHOTGUN);
 
 	// send muzzle flash
 	gi.WriteByte (svc_muzzleflash);
