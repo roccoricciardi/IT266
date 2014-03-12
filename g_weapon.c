@@ -290,13 +290,17 @@ void blaster_touch (edict_t *self, edict_t *other, cplane_t *plane, csurface_t *
 
 	if (other == self->owner)
 		return;
-
+	
+	
+	//Midterm Mod - blaster bullets keep fading out
+	
+	/*
 	if (surf && (surf->flags & SURF_SKY))
 	{
 		G_FreeEdict (self);
 		return;
 	}
-
+	*/
 	if (self->owner->client)
 		PlayerNoise(self->owner, self->s.origin, PNOISE_IMPACT);
 
@@ -320,7 +324,8 @@ void blaster_touch (edict_t *self, edict_t *other, cplane_t *plane, csurface_t *
 		gi.multicast (self->s.origin, MULTICAST_PVS);
 	}
 
-	G_FreeEdict (self);
+	//Midterm Mod - blaster bullets keep fading out
+	//G_FreeEdict (self);
 }
 
 void fire_blaster (edict_t *self, vec3_t start, vec3_t dir, int damage, int speed, int effect, qboolean hyper)
