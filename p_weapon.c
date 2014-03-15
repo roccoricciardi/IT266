@@ -1005,6 +1005,7 @@ void Machinegun_Fire (edict_t *ent)
 
 	//removing lead based weapons for this mod - ammo will be in slomo, lead weapons don't actually fire stuff
 	//fire_bullet (ent, start, forward, damage, kick, DEFAULT_BULLET_HSPREAD, DEFAULT_BULLET_VSPREAD, MOD_MACHINEGUN);
+	// You could possibly remove the lead based weapons from the game, or replace their spawns now that they are essentially useless?
 
 	gi.WriteByte (svc_muzzleflash);
 	gi.WriteShort (ent-g_edicts);
@@ -1237,6 +1238,7 @@ void Weapon_Shotgun (edict_t *ent)
 
 void weapon_supershotgun_fire (edict_t *ent)
 {
+	// Since the shotgun is now a knockback weapon, you could also apply the same increase in kick and elimination of damage for the supershotgun here.
 	vec3_t		start;
 	vec3_t		forward, right;
 	vec3_t		offset;
@@ -1271,6 +1273,8 @@ void weapon_supershotgun_fire (edict_t *ent)
 	
 	//removing lead based weapons for this mod - ammo will be in slomo, lead weapons don't actually fire stuff
 	//fire_shotgun (ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT/2, MOD_SSHOTGUN);
+
+	// If you decide to also make the supershotgun a knockback weapon, these firing functions will have to brought back in.
 
 	// send muzzle flash
 	gi.WriteByte (svc_muzzleflash);
