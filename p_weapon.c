@@ -1006,6 +1006,9 @@ void Machinegun_Fire (edict_t *ent)
 	//removing lead based weapons for this mod - ammo will be in slomo, lead weapons don't actually fire stuff
 	//fire_bullet (ent, start, forward, damage, kick, DEFAULT_BULLET_HSPREAD, DEFAULT_BULLET_VSPREAD, MOD_MACHINEGUN);
 
+	//FROM PAT You could possibly remove the lead based weapons from the game, or replace their spawns now that they are essentially useless?
+	//RESPONSE --> I kinda like it this way; I imagine players with a sense of helplessness when they try firing faulty weaponry
+
 	gi.WriteByte (svc_muzzleflash);
 	gi.WriteShort (ent-g_edicts);
 	gi.WriteByte (MZ_MACHINEGUN | is_silenced);
