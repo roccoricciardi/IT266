@@ -890,7 +890,8 @@ void Cmd_dash_f (edict_t *ent)
 	vec3_t forward;
 	AngleVectors(ent->client->v_angle, forward, NULL, NULL);
 
-			if((!ent) || (ent->client))
+			if((!ent) || (ent->client)) // !ent allows for non-entities to call this function
+										// that's okay, that shouldn't ever happen
 			{
 				VectorMA(ent->velocity, 900, forward, ent->velocity);
 			}
