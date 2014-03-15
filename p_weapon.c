@@ -1240,12 +1240,14 @@ void Weapon_Shotgun (edict_t *ent)
 
 void weapon_supershotgun_fire (edict_t *ent)
 {
+	// Since the shotgun is now a knockback weapon, you could also apply the same increase in kick and elimination of damage for the supershotgun here.
+	//Thanks - actually meant to do that originally
 	vec3_t		start;
 	vec3_t		forward, right;
 	vec3_t		offset;
 	vec3_t		v;
-	int			damage = 6;
-	int			kick = 12;
+	int			damage = 0;
+	int			kick = 50;
 
 	AngleVectors (ent->client->v_angle, forward, right, NULL);
 
@@ -1267,13 +1269,17 @@ void weapon_supershotgun_fire (edict_t *ent)
 	AngleVectors (v, forward, NULL, NULL);
 
 	//removing lead based weapons for this mod - ammo will be in slomo, lead weapons don't actually fire stuff
-	//fire_shotgun (ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT/2, MOD_SSHOTGUN);
+	fire_shotgun (ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT/2, MOD_SSHOTGUN);
 	
 	v[YAW]   = ent->client->v_angle[YAW] + 5;
 	AngleVectors (v, forward, NULL, NULL);
 	
 	//removing lead based weapons for this mod - ammo will be in slomo, lead weapons don't actually fire stuff
-	//fire_shotgun (ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT/2, MOD_SSHOTGUN);
+	fire_shotgun (ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT/2, MOD_SSHOTGUN);
+
+
+	// If you decide to also make the supershotgun a knockback weapon, these firing functions will have to brought back in.
+	//Noted, thanks
 
 	// send muzzle flash
 	gi.WriteByte (svc_muzzleflash);
